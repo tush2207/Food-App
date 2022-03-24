@@ -1,0 +1,43 @@
+.nav{
+   
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  
+    
+}
+
+
+.nav-item{
+    text-align: center;
+    margin-left: 10%    ;
+    margin-bottom: 12%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+}
+
+.nav-link{
+   font-weight: bold;
+   font-family: 'Times New Roman', Times, serif;
+   border: black solid  3px;
+   border-radius:5px;
+   justify-content: space-between;
+   align-items: center;
+   text-align: center;
+
+}
+h3{
+    font-size:3rem;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+.contact{
+    font-size: 1.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+}
+h2{
+    font-family: 'Times New Roman', Times, serif;
+}

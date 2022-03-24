@@ -1,0 +1,40 @@
+.home{
+    width:98% ;
+    height: 90vh;
+    display: flex;
+    align-items: left;
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 13px;
+    font-size: 40px;
+    color: black;
+
+}
+
+
+.header-container h2 {
+    color: black;
+    cursor: pointer;
+    /* padding: 25px; */
+    font-family: 'Great Vibes', cursive;
+    margin-left: 50px;
+    
+}
+.header-container p{
+    color: black;
+    cursor: pointer;
+    margin-left: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+.homebutton{
+    margin-left: 50px;
+  
+}
+
+
+

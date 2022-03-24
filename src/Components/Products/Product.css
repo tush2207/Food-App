@@ -1,0 +1,52 @@
+
+.cards {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-right: 15px;
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-bottom: 20px;
+
+    text-align: center;
+    border-radius: 15px;
+    border: 7px black solid;
+    
+
+    
+    
+}
+.CardContent{
+    background-image: url("/home/v2stech/Documents/React Training/project-food_delivery/public/img/cardback.jpg");
+    background-size: cover;
+    background-position: center;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    border-radius: 15px;
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.Menu{
+    background-color: rgb(219, 235, 235);
+    width: 98%;
+    margin-left:11px;
+
+    
+}
+
+
+
+
+.MenuBar{
+    display: inline-flex;
+    margin-left:11px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: 3px solid black;  
+    background-color: rgb(234, 241, 239);
+    width: 98%;
+    height: 60px;
+    color: rgb(7, 7, 7);
+    justify-content: center;
+    text-transform: uppercase;
+    margin-bottom: px;
+    
+}

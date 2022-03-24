@@ -1,0 +1,30 @@
+.Thanks{
+    width: 94%;
+    margin-left: 18px;
+    
+    font-size: 2.5rem; 
+        text-align: center;
+    font-family: 'Great Vibes', cursive;
+    padding: 20px;
+    /* color: chartreuse   ; */
+    text-decoration-color: black;
+    background-image: url("/home/v2stech/Documents/React Training/project-food_delivery/public/img/back3.jpg");
+    background-size: cover;
+
+    background-position:center;
+
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+
+
+    
+
+}
+.Thanks h2{
+    background-color: rgba(0, 0, 0,0.5);
+    color:  white;
+}
