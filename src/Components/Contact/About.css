@@ -1,43 +1,33 @@
-.nav{
-   
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-  
-    
+.About {
+  background-image: url("/home/v2stech/Documents/React Training/project-food_delivery/public/img/boy2.jpeg");
+  width: 95%;
+  height: 150vh;
+  display: flex;
+  align-items: left;
+
+  background-size: cover;
+  flex-direction: column;
+  margin-left: 10px;
+  font-size: 40px;
+  color: black;
+  border: 3px solid black;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
 }
 
+.main {
+  /* background-color: rgba(5, 5, 5, 0.8); */
+  background-color: rgba(206, 195, 195, 0.8);
 
-.nav-item{
-    text-align: center;
-    margin-left: 10%    ;
-    margin-bottom: 12%;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-
+  color: rgb(2, 2, 2);
+  /* margin: 50px; */
+  margin-top: 10px;
+  padding-top: 15px;
 }
-
-.nav-link{
-   font-weight: bold;
-   font-family: 'Times New Roman', Times, serif;
-   border: black solid  3px;
-   border-radius:5px;
-   justify-content: space-between;
-   align-items: center;
-   text-align: center;
-
-}
-h3{
-    font-size:3rem;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-}
-.contact{
-    font-size: 1.5rem;
-    font-family: 'Times New Roman', Times, serif;
-    padding: 10px;
-}
-h2{
-    font-family: 'Times New Roman', Times, serif;
+.Contact {
+  width: 700px;
+  background-color: rgba(206, 195, 195, 0.8);
+  padding: 20px;
+  color: white;
 }

@@ -1,97 +1,112 @@
-.MenuCard {
-  display: flex;
-  justify-items: flex-end;
-  flex-direction: column;
-
-
-
-
+.full {
+  background-color: aqua;
+  background-image: url("/home/v2stech/Documents/React Training/project-food_delivery/public/img/boy.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 98%;
+  margin-left: 15px;
 }
-
-.Main{
-  /* flex-direction: column; */
-  display: inline-flex;
-  justify-items: flex-end;
-    justify-content: center;
-
-}
-
 
 .cart {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: "Times New Roman", Times, serif;
   text-transform: uppercase;
 }
-.emptycart {
-  text-align: center;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 1.2rem;
-  color: red;
-  width: 75%;
-  
 
-
-}
-.cart-img {
-  width: 100%;
-  height: 100px;
-
-  /* border: 2px solid black;
-  border-radius: 5px; */
-}
-.Coupon{
-  margin-bottom: 20px;
-}
-.SideBar {
-  /* background-image: url("/home/v2stech/Documents/React Training/project-food_delivery/public/img/cardback.jpg"); */
-  background-repeat: no-repeat;
-  /* background-size: 350px 450px   ; */
-  display: flex;
+.Main {
+  display: -webkit-inline-flex;
   justify-content: space-evenly;
+  justify-self: end;
+}
+
+.MenuCard {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  padding: 25px;
+}
+
+.cardimg {
+  width: 40%;
+  height: 150px;
+  border: 4px solid black;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.SideBar {
+  background-size: 400px 500px;
   display: inline-flex;
-  justify-items: flex-end;
-  
-
-  
-  background-position: center;
   text-align: center;
-  /* padding:20px; */
   font-size: 1.6rem;
-  font-family: 'Times New Roman', Times, serif;
+  margin-top: 50px;
+  padding: 20px;
   text-transform: uppercase;
-  margin-bottom: 20px;
-
-}
-.ApplyButton{
-margin-top: 50px
-
-
+  margin-bottom: 15px;
+  font-family: "Great Vibes", cursive;
+  font-family: "Pacifico", cursive;
+  font-family: "Playfair Display", serif;
 }
 
-.Order-Button{
-margin-top: 50px
+.ApplyButton {
+  margin-top: 50px;
 }
 
-.Emptymenu{
+.Order-Button {
+  margin-top: 50px;
+}
+
+.Emptymenu {
   margin-left: 450px;
   text-align: center;
   text-transform: uppercase;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 3rem;
 }
 
-.ordercard{
-  display: inline-flex;
-  justify-content: space-between;
- 
-  height: 150px;
-  padding: 20px;
-  margin: 30px;
-  margin-left: 20px;
-
+.ordercard {
+  width: 830px;
+  height: 160px;
+  padding: 10px;
+  object-fit: cover;
 }
 
+.hotloc {
+  flex-direction: column;
+  margin-left: 20px;
+  font-size: 2rem;
+  text-transform: capitalize;
+
+  justify-content: space-evenly;
+  font-family: "Great Vibes", cursive;
+  font-family: "Pacifico", cursive;
+  font-family: "Playfair Display", serif;
+}
+
+.Dish {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin-left: 20px;
+  text-transform: capitalize;
+  flex-direction: row;
+  font-family: "Great Vibes", cursive;
+  font-size: 2rem;
+  font-family: "Great Vibes", cursive;
+  font-family: "Pacifico", cursive;
+  font-family: "Playfair Display", serif;
+}
+.qtypri {
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+  text-transform: uppercase;
+  flex-direction: row;
+  font-size: 2.5rem;
+  justify-content: space-around;
+}
+.Qty {
+  background-color: bisque;
+  border-radius: 40px;
+  border: 2px solid black;
+  padding-left: 8px;
+  padding-right: 8px;
+}

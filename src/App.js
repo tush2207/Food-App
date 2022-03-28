@@ -1,6 +1,5 @@
-import "./App.css";
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Components/Login/Login";
@@ -19,8 +18,6 @@ function App() {
   const [loginState, setLoginState] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
-  // const [search,setSearch]=useState("")
-
   const postApi = (user) => {
     axios
       .post("https://reqres.in/api/login", {
@@ -36,7 +33,7 @@ function App() {
   const logout = () => {
     setLoginState(false);
     console.log(loginState);
-    localStorage.removeItem("token"); 
+    localStorage.removeItem("token");
   };
 
   const onAdd = (product) => {
@@ -65,9 +62,7 @@ function App() {
     }
   };
 
-
-
- useEffect(() => {
+  useEffect(() => {
     let token = localStorage.getItem("token");
 
     if (token) {
@@ -76,7 +71,6 @@ function App() {
   }, []);
   return (
     <>
-      {/* <div className="App"> */}
       {!loginState ? (
         <BrowserRouter>
           <Routes>
@@ -111,11 +105,9 @@ function App() {
             />
             <Route path="*" element={<Navigate replace to="/" />} />
             <Route path="Thankyou" element={<Thankyou />} />
-
           </Routes>
         </BrowserRouter>
       )}
-      {/* </div> */}
     </>
   );
 }

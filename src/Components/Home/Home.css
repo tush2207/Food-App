@@ -1,40 +1,33 @@
-.home{
-    width:98% ;
-    height: 90vh;
-    display: flex;
-    align-items: left;
-    background-position:center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    flex-direction: column;
-    justify-content: flex-end;
-    margin-left: 13px;
-    font-size: 40px;
-    color: black;
-
+.home {
+  width: 95%;
+  height: 80vh;
+  display: flex;
+  align-items: left;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 10px;
+  font-size: 40px;
+  color: black;
+  border: 3px solid black;
+  padding: 20px;
 }
-
 
 .header-container h2 {
-    color: black;
-    cursor: pointer;
-    /* padding: 25px; */
-    font-family: 'Great Vibes', cursive;
-    margin-left: 50px;
-    
+  color: black;
+  cursor: pointer;
+  font-family: "Great Vibes", cursive;
+  margin-left: 50px;
 }
-.header-container p{
-    color: black;
-    cursor: pointer;
-    margin-left: 50px;
-    font-family: 'Times New Roman', Times, serif;
-    
+.header-container p {
+  color: black;
+  cursor: pointer;
+  margin-left: 50px;
+  font-family: "Times New Roman", Times, serif;
 }
 
-.homebutton{
-    margin-left: 50px;
-  
+.homebutton {
+  margin-left: 50px;
 }
-
-
-

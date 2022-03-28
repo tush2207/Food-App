@@ -1,6 +1,4 @@
 import React from "react";
-import DeleteIcon from "@mui/icons-material/Delete";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { Box } from "@mui/system";
 import IconButton from "@mui/material/IconButton";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -18,11 +16,13 @@ import DialogActions from "@mui/material/DialogActions";
 import Slide from "@mui/material/Slide";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
 import FmdGoodIcon from "@mui/icons-material/FmdGood";
 import RoomServiceIcon from "@mui/icons-material/RoomService";
 import StoreIcon from "@mui/icons-material/Store";
 import Thankyou from "../Thankyou/Thankyou";
+import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -63,7 +63,7 @@ export default function MenuCard(props) {
   };
 
   return (
-    <>
+    <div className="full">
       <Stack spacing={2} sx={{ width: "100%" }}>
         <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
           <Alert
@@ -75,12 +75,12 @@ export default function MenuCard(props) {
           </Alert>
         </Snackbar>
       </Stack>
-      <h3 className="cart"> Items</h3>
       <div className="Main">
         <div className="MenuCard">
           {cartItems.length === 0 ? (
-
-            <h4 className="emptycart">Cart is Empty</h4>
+            <Box sx={{ width: 880, height: 400 }} className="emptycart">
+              <h1> No Food is Order</h1>
+            </Box>
           ) : (
             <>
               {cartItems.map((item) => {
@@ -89,11 +89,9 @@ export default function MenuCard(props) {
                     className="ordercard"
                     sx={{
                       display: "flex",
-                      // minwidth:"75%",
-                      // maxWidth:"75%",
-                      maxheight: "170",
+
                       marginLeft: 3,
-                      marginBottom:5,
+                      marginBottom: 5,
                       border: "2px solid grey",
                       borderRadius: 3,
                     }}
@@ -101,45 +99,52 @@ export default function MenuCard(props) {
                     <CardMedia
                       className="cardimg"
                       component="img"
-                      sx={{ width: 150, height: 150 }}
+                      sx={{ width: 250, height: 150 }}
                       image={item.img}
                       alt="orderimg"
                     />
 
-                    <Typography>{item.name}</Typography>
-
-                    <Typography>
-                      <StoreIcon />{item.hotel}
-                    </Typography>
-                    <Typography>
-                      <FmdGoodIcon /> {item.location}
-                    </Typography>
-                    <Button onClick={() => onAdd(item)} className="add">
-                      <AddCircleIcon />
-                    </Button>
-                    <Typography>{item.qty}</Typography>
-
-                    <Button onClick={() => onRemove(item)} className="remove">
-                      <DeleteIcon />
-                    </Button>
-                    <Typography>{item.price}</Typography>
+                    <div className="ordercontant">
+                      <div className="hotloc" varient="h2">
+                        <StoreIcon fontSize="large" /> {item.hotel}
+                        <FmdGoodIcon fontSize="large" /> {item.location}
+                      </div>
+                      <div className="Dish">
+                        <RoomServiceIcon fontSize="large" />
+                        {item.name}
+                      </div>
+                      <div className="qtypri">
+                        <Button onClick={() => onAdd(item)} className="add">
+                          <AddCircleIcon color="success" fontSize="large" />
+                        </Button>
+                        <div className="Qty">{item.qty}</div>
+                        <Button
+                          onClick={() => onRemove(item)}
+                          className="remove"
+                        >
+                          <RemoveCircleIcon color="error" fontSize="large" />
+                        </Button>
+                        <div className="DishPrice" varient="h3">
+                          <CurrencyRupeeIcon fontSize="large" />
+                          {item.price}
+                        </div>
+                      </div>
+                    </div>
                   </Card>
                 );
               })}
             </>
           )}
         </div>
-        <div className="Order Summary">
-          <Box
-            className="SideBar"
-            sx={{
-              width: 400,
-              height: 500,
-              marginLeft: 3,
-              
 
-              border: "2px solid grey",
-              borderRadius: 3,
+        <div className="SideBar">
+          <Box
+            sx={{
+              width: 380,
+              height: 400,
+              flexDirection: "flex-end",
+              border: "4px solid black",
+              borderRadius: 15,
             }}
           >
             <h4>Order Summary</h4>
@@ -195,10 +200,7 @@ export default function MenuCard(props) {
             </div>
           </Box>
         </div>
-        {/* </>
-        )}
-      </div> */}
       </div>
-    </>
+    </div>
   );
 }

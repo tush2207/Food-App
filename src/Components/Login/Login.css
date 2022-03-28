@@ -1,28 +1,30 @@
-.Body{
-    background-image: url("/home/v2stech/Documents/React Training/project-food_delivery/public/img/back.jpg");
-    border: 5px solid black;
-    border-radius: 25px;
-
-    
+.Body {
+  background-image: url("/home/v2stech/Documents/React Training/project-food_delivery/public/img/back.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 5px solid black;
+  border-radius: 25px;
+}
+.loginMain {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 .title {
-    font-family: 'Great Vibes', cursive;
-
+  font-family: "Great Vibes", cursive;
+  display: flex;
+  align-items: center;
 }
-h3{
-
-    font-family: 'Great Vibes', cursive;
-
+h3 {
+  font-family: "Great Vibes", cursive;
 }
-.Inputs  {
+.Inputs {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  align-items:center;
-
+  align-items: center;
 }
-.logo{
-    width: 100px;
-    height: 100px;
-    padding: 10px;
+.logo {
+  width: 100px;
+  height: 100px;
 }

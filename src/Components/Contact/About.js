@@ -1,80 +1,79 @@
-import { WhatsApp } from "@mui/icons-material";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import "./About.css";
+import Stack from "@mui/material/Stack";
+import Snackbar from "@mui/material/Snackbar";
+import { Alert } from "@mui/material";
 import { Button } from "@mui/material";
-import React from "react";
-// import './About.css'
-import CallIcon from "@mui/icons-material/Call";
-import DirectionsIcon from "@mui/icons-material/Directions";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
-const About = () => {
-  const gotowhatsApp = () => {
-    console.log("WhatsApp");
+export default function About() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
   };
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   return (
-    <>
-      <div>
-        <h3>Contact Us</h3>
-      </div>
-      <div className="nav">
-        <ul >
-          <li className="nav-item">
-            <h2>WhatsApp Mgs</h2>
+    <div className="About">
+      <Stack spacing={2} sx={{ width: "100%" }}>
+        <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            Your Request
+          </Alert>
+        </Snackbar>
+      </Stack>
+      <Box
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 2, width: "30ch" },
+          flexDirection: "column",
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <h1 className="main">Contact Us</h1>
 
-            <a
-              class="nav-link active"
-              aria-current="page"
-              href="https://api.whatsapp.com/send?phone=919224347232&text="
-            >
-              <WhatsAppIcon />
-              WhatsApp
-            </a>
-            <br />
-            <p className="contact">
-              9224347232 <br />
-              9819400173 <br />
-            </p>
-          </li>
+        <div className="Contact">
+          <TextField
+            id="outlined-multiline-flexible"
+            label=" Full Name "
+            multiline
+            maxRows={4}
+          />
+          <TextField
+            id="outlined-multiline-flexible"
+            label="Email"
+            placeholder="abc@gmail.com"
+            multiline
+            maxRows={4}
+          />
 
-          <li className="nav-item">
-            <h2>Constact</h2>
+          <TextField
+            id="outlined-multiline-static"
+            label="Message"
+            size="large"
+            multiline
+            s
+            rows={10}
+          />
 
-            <a class="nav-link">
-              <CallIcon />
-              Call Now
-            </a>
-            <br />
-            <p className="contact">
-              9224347232 <br />
-              9819400173 <br />
-              9870555703 <br />
-              9172724033 <br />
-              9819886927
-            </p>
-          </li>
-          <li className="nav-item">
-            <h2>Address</h2>
-
-            <a
-              class="nav-link"
-              href="https://www.google.com/maps/dir//Tushar+Event's/@19.0511683,72.8173849,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3be7c96187c3ec85:0xdc7ff4669f317c1!2m2!1d72.8874254!2d19.0511815"
-            >
-              <DirectionsIcon />
-              Get Direction
-            </a>
-            <br />
-            <p className="contact">
-              118-A, Lal Dongar Rd ,Sindhi Society,
-              <br />
-              Chembur East,Mumbai, <br />
-              Maharashtra 400071
-              <br />
-              India
-            </p>
-          </li>
-        </ul>
-      </div>
-    </>
+          <Button className="abtn" variant="contained" onClick={handleClick}>
+            Submit
+          </Button>
+        </div>
+      </Box>
+    </div>
   );
-};
-
-export default About;
+}
