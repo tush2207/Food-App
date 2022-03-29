@@ -85,7 +85,7 @@ export default function MenuCard(props) {
             <>
               {cartItems.map((item) => {
                 return (
-                  <Card
+                  <Card 
                     className="ordercard"
                     sx={{
                       display: "flex",

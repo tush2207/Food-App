@@ -1,34 +1,45 @@
+
 .cards {
-  display: inline-flex;
+    display:inline-flex;
+  
+    margin-top: 20px;
+    margin-left:5%;
+    margin-bottom: 30px;
+    text-align: center;
+    border-radius: 50PX;
+    
+}
+.CardContent{
+    background-image: url("/home/v2stech/Documents/React Training/project-food_delivery/public/img/cardback.jpg");
+    background-size: cover;
+    text-transform: uppercase;
+    border-radius: 20px;
+   
+}
+.Menu{
+    background-color: rgb(219, 235, 235);
+    width: 98%;
+    margin-left:11px;
 
-  margin-top: 20px;
-  margin-left: 5%;
-  margin-bottom: 30px;
-  text-align: center;
-  border-radius: 50px;
+    
 }
-.CardContent {
-  background-image: url("/home/v2stech/Documents/React Training/project-food_delivery/public/img/cardback.jpg");
-  background-size: cover;
-  text-transform: uppercase;
-  border-radius: 20px;
-}
-.Menu {
-  background-color: rgb(219, 235, 235);
-  width: 98%;
-  margin-left: 11px;
-}
-.search-bar {
-  margin-top: 20px;
+.search-bar{
+    margin-top: 20px;
+
 }
 
-.MenuBar {
-  display: inline-flex;
-  margin-left: 11px;
-  width: 98%;
-  height: 60px;
-  color: rgb(7, 7, 7);
-  justify-content: center;
-  text-transform: uppercase;
-  margin-bottom: px;
+
+
+
+.MenuBar{
+    display: inline-flex;
+    margin-left:11px;
+ 
+    width: 98%;
+    height: 60px;
+    color: rgb(7, 7, 7);
+    justify-content: center;
+    text-transform: uppercase;
+    margin-bottom: px;
+    
 }
