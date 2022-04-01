@@ -20,6 +20,7 @@ import FmdGoodIcon from "@mui/icons-material/FmdGood";
 import RoomServiceIcon from "@mui/icons-material/RoomService";
 import StoreIcon from "@mui/icons-material/Store";
 import Thankyou from "../Thankyou/Thankyou";
+import PlacedOrder from "../PlacedOrder/PlacedOrder";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
@@ -85,7 +86,7 @@ export default function MenuCard(props) {
             <>
               {cartItems.map((item) => {
                 return (
-                  <Card 
+                  <Card
                     className="ordercard"
                     sx={{
                       display: "flex",
@@ -171,32 +172,16 @@ export default function MenuCard(props) {
             Total Price:{totalPrice}
             <br />
             <div className="Order-Button">
-              <Button
-                variant="contained"
-                color="success"
-                onClick={handleClickOrder}
-              >
-                PLACED ORDER
-              </Button>
-              <Dialog
-                open={openorder}
-                TransitionComponent={Transition}
-                keepMounted
-                onClose={handleCloseOrder}
-                aria-describedby="alert-dialog-slide-description"
-              >
-                <DialogTitle>
-                  {"Do you want to confirm this order?"}
-                </DialogTitle>
-
-                <DialogActions>
-                  <Button onClick={handleCloseOrder}>Cancel</Button>
-
-                  <Link to="/Thankyou">
-                    <Button onClick={Thankyou}>confirm</Button>
-                  </Link>
-                </DialogActions>
-              </Dialog>
+              <Link to="/PlacedOrder">
+                <Button
+                  variant="contained"
+                  color="success"
+                  onClick={PlacedOrder}
+                >
+                  PLACED ORDER
+                </Button>
+              </Link>
+             
             </div>
           </Box>
         </div>

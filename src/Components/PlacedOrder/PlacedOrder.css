@@ -1,0 +1,23 @@
+.form{
+    margin: 50px;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    justify-content: center;
+    text-align: center;
+    padding: 50px;
+    border-radius: 50px;
+    border: 5px solid black;
+    background-color: rgb(238, 253, 253);
+    text-shadow: aqua 2px ;
+   
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+}
+.Pay{
+    /* display: inline-flex; */
+    /* justify-content: flex-end; */
+}

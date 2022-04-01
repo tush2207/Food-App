@@ -11,7 +11,7 @@ import About from "./Components/Contact/About";
 import MenuCard from "./Components/Menu/MenuCard";
 import Products from "./Components/Products/Products";
 import Thankyou from "./Components/Thankyou/Thankyou";
-
+import PlacedOrder from "./Components/PlacedOrder/PlacedOrder"
 const { Product } = data;
 
 function App() {
@@ -108,6 +108,8 @@ function App() {
             />
             <Route path="*" element={<Navigate replace to="/" />} />
             <Route path="Thankyou" element={<Thankyou />} />
+            <Route path="PlacedOrder" element={<PlacedOrder />} />
+
 
           </Routes>
         </BrowserRouter>
