@@ -8,26 +8,19 @@ import "./MenuCard.css";
 import Stack from "@mui/material/Stack";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
-import DialogTitle from "@mui/material/DialogTitle";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import Slide from "@mui/material/Slide";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import FmdGoodIcon from "@mui/icons-material/FmdGood";
 import RoomServiceIcon from "@mui/icons-material/RoomService";
 import StoreIcon from "@mui/icons-material/Store";
-import Thankyou from "../Thankyou/Thankyou";
 import PlacedOrder from "../PlacedOrder/PlacedOrder";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
+
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -53,15 +46,6 @@ export default function MenuCard(props) {
     setOpen(false);
   };
 
-  const [openorder, setOpenorder] = React.useState(false);
-
-  const handleClickOrder = () => {
-    setOpenorder(true);
-  };
-
-  const handleCloseOrder = () => {
-    setOpenorder(false);
-  };
 
   return (
     <div className="full">

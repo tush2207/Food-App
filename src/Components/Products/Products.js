@@ -30,50 +30,43 @@ function Products(props) {
   };
   console.warn(filter);
   let datasearch = props.Product.filter((item) => {
-    return Object.keys(item).some((key) =>                                      
+    return Object.keys(item).some((key) =>
       item[key]
         .toString()
         .toLowerCase()
         .includes(filter.toString().toLowerCase())
     );
-
   });
-  console.log(props.Product)
-
- 
+  console.log(props.Product);
 
   return (
     <div className="Menu" key={Product.id}>
-
       <div className="MenuBar">
-          {/* <h2>Menu Card</h2> */}
+        {/* <h2>Menu Card</h2> */}
 
-
-
-        <div  className="search-bar">
-
-        <FormControl variant="outlined">
-          <OutlinedInput
-            size="small"
-            width="25ch"
-            placeholder="Search Food ,Location ..."
-            value={filter}
-            onChange={searchText}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton>
-                  <SearchIcon fontSize="large" />
-                </IconButton>
-              </InputAdornment>
-            }
-          />
-        </FormControl>
-      </div>
+        <div className="search-bar">
+          <FormControl variant="outlined">
+            <OutlinedInput
+              size="small"
+              width="25ch"
+              placeholder="Search Food ,Location ..."
+              value={filter}
+              onChange={searchText}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton>
+                    <SearchIcon fontSize="large" />
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
+          </FormControl>
+        </div>
       </div>
 
       {Product &&
         datasearch.map((Product) => (
-          <div className="cards"  Key={Product.id}  >
+          <div className="cards" Key={Product.id}>
             <Card
               className="card"
               sx={{
@@ -82,42 +75,45 @@ function Products(props) {
                 borderRadius: 10,
               }}
             >
-                <CardMedia
-                  component="img"
-                  height="160"
-                  src={Product.img}
-                  alt="green iguana"
-                ></CardMedia>
+              <CardMedia
+                component="img"
+                height="160"
+                src={Product.img}
+                alt="green iguana"
+              ></CardMedia>
 
-                <CardContent className="CardContent">
-                  <Typography  variant="h5" component="div">
-                    <RoomServiceIcon /> {Product.name} <CurrencyRupeeIcon />{" "}
-                    {Product.price}
-                  </Typography>
+              <CardContent className="CardContent">
+                <Typography variant="h5" component="div">
+                  <RoomServiceIcon /> {Product.name} <CurrencyRupeeIcon />{" "}
+                  {Product.price}
+                </Typography>
 
-                  <Typography  variant="h5" component="div">
-                    <StoreIcon /> {Product.hotel}
-                    <br />
-                    <Rating
-                      className="rating"
-                      name="simple-controlled"
-                      value={value}
-                      onChange={(event, newValue) => {
-                        setValue(newValue);
-                      }}
-                    />
-                  </Typography>
-                  <Typography  variant="h5" component="div">
-                    <FmdGoodIcon />
-                    {Product.location}
-                  </Typography>
-                  <div className="Order-button">
-                    <Button size="small" variant="contained"
-                              onClick={() => onAdd(Product)}
-
-                    >Order Now</Button>
-                  </div>
-                </CardContent>
+                <Typography variant="h5" component="div">
+                  <StoreIcon /> {Product.hotel}
+                  <br />
+                  <Rating
+                    className="rating"
+                    name="simple-controlled"
+                    value={value}
+                    onChange={(event, newValue) => {
+                      setValue(newValue);
+                    }}
+                  />
+                </Typography>
+                <Typography variant="h5" component="div">
+                  <FmdGoodIcon />
+                  {Product.location}
+                </Typography>
+                <div className="Order-button">
+                  <Button
+                    size="small"
+                    variant="contained"
+                    onClick={() => onAdd(Product)}
+                  >
+                    Order Now
+                  </Button>
+                </div>
+              </CardContent>
             </Card>
           </div>
         ))}

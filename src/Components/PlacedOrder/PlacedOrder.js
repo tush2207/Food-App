@@ -13,7 +13,8 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import './PlacedOrder.css'
+import "./PlacedOrder.css";
+
 const initialValues = {
   fname: "",
   lname: "",
@@ -22,8 +23,8 @@ const initialValues = {
   state: "",
   city: "",
   postal: "",
-  address: "",
-  contactno: "",
+  Address: "",
+  Mobileno: "",
   cardno: "",
   cvv: "",
   expiry: "",
@@ -36,10 +37,9 @@ const onSubmit = (values) => {
 const validationSchema = Yup.object({
   fname: Yup.string().required("Required"),
   lname: Yup.string().required("Required"),
+  Mobileno: Yup.string().required("Required"),
+  Address: Yup.string().required("Required"),
   email: Yup.string().required("Required").email("Invalid email address"),
-  country: Yup.string().required("Enter Country"),
-  state: Yup.string().required("Enter State"),
-  city: Yup.string().required("Enter City"),
   postal: Yup.string().required("Enter Postal Code").min(6, "Too short"),
   contactno: Yup.string()
     .required("Required")
@@ -73,7 +73,7 @@ const PlacedOrder = () => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      <Form  className="Form">
+      <Form className="Form">
         <Grid container spacing={4}>
           <Grid item xs={12} sm={12} md={12}>
             <Typography variant="h4">Personal Information</Typography>
@@ -87,7 +87,9 @@ const PlacedOrder = () => {
               fullWidth
               autoComplete="off"
             />
-            <ErrorMessage className="error" name="fname" />
+            <ErrorMessage name="fname">
+              {(errorMsg) => <div className="error">{errorMsg}</div>}
+            </ErrorMessage>
           </Grid>
 
           <Grid item xs={12} sm={6} md={6}>
@@ -98,7 +100,9 @@ const PlacedOrder = () => {
               fullWidth
               autoComplete="off"
             />
-            <ErrorMessage className="error" name="fname" />
+            <ErrorMessage name="lname">
+              {(errorMsg) => <div className="error">{errorMsg}</div>}
+            </ErrorMessage>
           </Grid>
 
           <Grid item xs={12} sm={12} md={12}>
@@ -109,7 +113,9 @@ const PlacedOrder = () => {
               fullWidth
               autoComplete="off"
             />
-            <ErrorMessage className="error" name="fname" />
+            <ErrorMessage name="email">
+              {(errorMsg) => <div className="error">{errorMsg}</div>}
+            </ErrorMessage>
           </Grid>
 
           <Grid item xs={12} sm={12} md={12}>
@@ -121,15 +127,21 @@ const PlacedOrder = () => {
               fullWidth
               autoComplete="off"
             />
-            <ErrorMessage className="error" name="fname" />
+            <ErrorMessage name="Mobileno">
+              {(errorMsg) => <div className="error">{errorMsg}</div>}
+            </ErrorMessage>
           </Grid>
           <Grid item xs={12} sm={12} md={12}>
             <TextField
               variant="outlined"
               label="Adderss"
+              name="Adderss"
               fullWidth
               autoComplete="off"
             />
+            <ErrorMessage name="Adderss">
+              {(errorMsg) => <div className="error">{errorMsg}</div>}
+            </ErrorMessage>
           </Grid>
 
           <Grid item xs={12} sm={3} md={3}>
@@ -179,7 +191,9 @@ const PlacedOrder = () => {
               type="number"
               fullWidth
             />
-            <ErrorMessage className="error" name="fname" />
+            <ErrorMessage name="postal">
+              {(errorMsg) => <div className="error">{errorMsg}</div>}
+            </ErrorMessage>
           </Grid>
 
           <hr />
@@ -218,7 +232,9 @@ const PlacedOrder = () => {
               fullWidth
               autoComplete="off"
             />
-            <ErrorMessage className="error" name="fname" />
+            <ErrorMessage className="error" name="cardno">
+              {(errorMsg) => <div className="error">{errorMsg}</div>}
+            </ErrorMessage>
           </Grid>
 
           <Grid item xs={12} sm={6} md={6}>
@@ -231,7 +247,9 @@ const PlacedOrder = () => {
               fullWidth
               autoComplete="off"
             />
-            <ErrorMessage className="error" name="fname" />
+            <ErrorMessage className="error" name="fname">
+              {(errorMsg) => <div className="error">{errorMsg}</div>}
+            </ErrorMessage>
           </Grid>
 
           <Grid item xs={12} sm={6} md={6}>
@@ -244,7 +262,9 @@ const PlacedOrder = () => {
               fullWidth
               autoComplete="off"
             />
-            <ErrorMessage className="error" name="fname" />
+            <ErrorMessage name="expiry">
+              {(errorMsg) => <div className="error">{errorMsg}</div>}
+            </ErrorMessage>
           </Grid>
 
           <Grid item xs={12} sm={12} md={12}>
