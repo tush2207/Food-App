@@ -73,7 +73,7 @@ function App() {
   }, []);
   return (
     <>
-      {!loginState ? (
+      {/* {!loginState ? (
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Login onLogin={postApi} />} />
@@ -81,38 +81,38 @@ function App() {
             <Route path='*' element={<Navigate replace to='/' />} />
           </Routes>
         </BrowserRouter>
-      ) : (
-        <BrowserRouter>
-          <Navbar onLogout={logout} countCartItems={cartItems.length} />
+      ) : ( */}
+      <BrowserRouter>
+        <Navbar onLogout={logout} countCartItems={cartItems.length} />
 
-          <Routes>
-            <Route path='/' element={<Home />} />
+        <Routes>
+          <Route path='/' element={<Home />} />
 
-            <Route path='About' element={<About />} />
-            <Route
-              path='MenuCard'
-              element={
-                <MenuCard
-                  onAdd={onAdd}
-                  onRemove={onRemove}
-                  cartItems={cartItems}
-                />
-              }
-            />
-            <Route
-              path='Products'
-              element={
-                <Products key={Product.id} onAdd={onAdd} Product={Product} />
-              }
-            />
-            <Route path='*' element={<Navigate replace to='/' />} />
-            <Route path='Thankyou' element={<Thankyou />} />
-            <Route path='Contact' element={<Contact />} />
+          <Route path='About' element={<About />} />
+          <Route
+            path='MenuCard'
+            element={
+              <MenuCard
+                onAdd={onAdd}
+                onRemove={onRemove}
+                cartItems={cartItems}
+              />
+            }
+          />
+          <Route
+            path='Products'
+            element={
+              <Products key={Product.id} onAdd={onAdd} Product={Product} />
+            }
+          />
+          <Route path='*' element={<Navigate replace to='/' />} />
+          <Route path='Thankyou' element={<Thankyou />} />
+          <Route path='Contact' element={<Contact />} />
 
-            <Route path='PlacedOrder' element={<PlacedOrder />} />
-          </Routes>
-        </BrowserRouter>
-      )}
+          <Route path='PlacedOrder' element={<PlacedOrder />} />
+        </Routes>
+      </BrowserRouter>
+      {/* )} */}
     </>
   );
 }
