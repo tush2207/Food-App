@@ -99,7 +99,7 @@ const Navbar = (props) => {
                 </li>
                 <li>
                   <NavLink activeClassName='active' to='/Products'>
-                    Products
+                    Menu
                   </NavLink>
                 </li>
                 <li>
