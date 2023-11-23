@@ -1,27 +1,28 @@
-import React from "react";
-import { useState,useEffect } from "react";
-import axios from "axios";
-import { Route, Routes } from "react-router-dom";
-import Login from "./Components/Login/Login";
-import Navbar from "./Components/Navbar/Navbar";
-import data from "./Components/Data/Data";
-import { Navigate, BrowserRouter } from "react-router-dom";
-import Home from "./Components/Home/Home";
-import About from "./Components/Contact/About";
-import MenuCard from "./Components/Menu/MenuCard";
-import Products from "./Components/Products/Products";
-import Thankyou from "./Components/Thankyou/Thankyou";
-import PlacedOrder from "./Components/PlacedOrder/PlacedOrder"
+import React from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Route, Routes } from 'react-router-dom';
+import Login from './Components/Login/Login';
+import Navbar from './Components/Navbar/Navbar';
+import data from './Components/Data/Data';
+import { Navigate, BrowserRouter } from 'react-router-dom';
+import Home from './Components/Home/Home';
+import About from './Components/About';
+import MenuCard from './Components/Menu/MenuCard';
+import Products from './Components/Products/Products';
+import Thankyou from './Components/Thankyou/Thankyou';
+import PlacedOrder from './Components/PlacedOrder/PlacedOrder';
+import Contact from './Components/Contact';
+
 const { Product } = data;
 
 function App() {
   const [loginState, setLoginState] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
-
   const postApi = (user) => {
     axios
-      .post("https://reqres.in/api/login", {
+      .post('https://reqres.in/api/login', {
         email: user.username,
         password: user.password,
       })
@@ -34,7 +35,7 @@ function App() {
   const logout = () => {
     setLoginState(false);
     console.log(loginState);
-    localStorage.removeItem("token"); 
+    localStorage.removeItem('token');
   };
 
   const onAdd = (product) => {
@@ -63,10 +64,8 @@ function App() {
     }
   };
 
-
-
- useEffect(() => {
-    let token = localStorage.getItem("token");
+  useEffect(() => {
+    let token = localStorage.getItem('token');
 
     if (token) {
       setLoginState(true);
@@ -77,9 +76,9 @@ function App() {
       {!loginState ? (
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Login onLogin={postApi} />} />
+            <Route path='/' element={<Login onLogin={postApi} />} />
 
-            <Route path="*" element={<Navigate replace to="/" />} />
+            <Route path='*' element={<Navigate replace to='/' />} />
           </Routes>
         </BrowserRouter>
       ) : (
@@ -87,11 +86,11 @@ function App() {
           <Navbar onLogout={logout} countCartItems={cartItems.length} />
 
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path='/' element={<Home />} />
 
-            <Route path="About" element={<About />} />
+            <Route path='About' element={<About />} />
             <Route
-              path="MenuCard"
+              path='MenuCard'
               element={
                 <MenuCard
                   onAdd={onAdd}
@@ -101,16 +100,16 @@ function App() {
               }
             />
             <Route
-              path="Products"
+              path='Products'
               element={
                 <Products key={Product.id} onAdd={onAdd} Product={Product} />
               }
             />
-            <Route path="*" element={<Navigate replace to="/" />} />
-            <Route path="Thankyou" element={<Thankyou />} />
-            <Route path="PlacedOrder" element={<PlacedOrder />} />
+            <Route path='*' element={<Navigate replace to='/' />} />
+            <Route path='Thankyou' element={<Thankyou />} />
+            <Route path='Contact' element={<Contact />} />
 
-
+            <Route path='PlacedOrder' element={<PlacedOrder />} />
           </Routes>
         </BrowserRouter>
       )}

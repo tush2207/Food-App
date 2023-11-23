@@ -1,8 +1,7 @@
 
 .cards {
     display:inline-flex;
-  
-    margin-top: 20px;
+    margin-top: 30px;
     margin-left:5%;
     margin-bottom: 30px;
     text-align: center;
@@ -10,7 +9,7 @@
     
 }
 .CardContent{
-    background-image: url("/home/v2stech/Documents/React Training/project-food_delivery/public/img/cardback.jpg");
+    /* background-image: url("/home/v2stech/Documents/React Training/project-food_delivery/public/img/cardback.jpg"); */
     background-size: cover;
     text-transform: uppercase;
     border-radius: 20px;

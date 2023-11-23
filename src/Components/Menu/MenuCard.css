@@ -1,112 +1,65 @@
-.full {
-  background-color: aqua;
-  background-image: url("/home/v2stech/Documents/React Training/project-food_delivery/public/img/boy.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 98%;
-  margin-left: 15px;
+/* MenuCard.css */
+
+.container {
+  border: 1px solid red;
 }
 
-.cart {
+.emptycart {
   text-align: center;
-  font-size: 1.2rem;
-  font-family: "Times New Roman", Times, serif;
-  text-transform: uppercase;
-}
-
-.Main {
-  display: -webkit-inline-flex;
-  justify-content: space-evenly;
-  justify-self: end;
-}
-
-.MenuCard {
   margin-top: 20px;
+}
+
+.order-card {
+  margin: 10px 0;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.order-content {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }
 
-.cardimg {
-  width: 40%;
-  height: 150px;
-  border: 4px solid black;
-  border-radius: 20px;
-  object-fit: cover;
-}
-
-.SideBar {
-  background-size: 400px 500px;
-  display: inline-flex;
-  text-align: center;
-  font-size: 1.6rem;
-  margin-top: 50px;
-  padding: 20px;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-  font-family: "Great Vibes", cursive;
-  font-family: "Pacifico", cursive;
-  font-family: "Playfair Display", serif;
-}
-
-.ApplyButton {
-  margin-top: 50px;
-}
-
-.Order-Button {
-  margin-top: 50px;
-}
-
-.Emptymenu {
-  margin-left: 450px;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 3rem;
-}
-
-.ordercard {
-  width: 830px;
-  height: 160px;
-  padding: 10px;
-  object-fit: cover;
-}
-
-.hotloc {
-  flex-direction: column;
-  margin-left: 20px;
-  font-size: 2rem;
-  text-transform: capitalize;
-
-  justify-content: space-evenly;
-  font-family: "Great Vibes", cursive;
-  font-family: "Pacifico", cursive;
-  font-family: "Playfair Display", serif;
-}
-
-.Dish {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  margin-left: 20px;
-  text-transform: capitalize;
-  flex-direction: row;
-  font-family: "Great Vibes", cursive;
-  font-size: 2rem;
-  font-family: "Great Vibes", cursive;
-  font-family: "Pacifico", cursive;
-  font-family: "Playfair Display", serif;
-}
-.qtypri {
+.dish {
   display: flex;
-  flex-direction: row;
-  margin-left: 20px;
-  text-transform: uppercase;
-  flex-direction: row;
-  font-size: 2.5rem;
-  justify-content: space-around;
+  align-items: center;
 }
-.Qty {
-  background-color: bisque;
-  border-radius: 40px;
-  border: 2px solid black;
-  padding-left: 8px;
-  padding-right: 8px;
+
+.quantity-price {
+  display: flex;
+  align-items: center;
+}
+
+.add,
+.remove {
+  margin: 0 5px;
+}
+
+.dish-price {
+  margin-left: 10px;
+}
+
+.order-summary {
+  border: 1px solid red;
+}
+
+.order-summary h4 {
+  border-bottom: 1px solid black;
+}
+
+.subtotal,
+.gst {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.coupon {
+  margin-top: 10px;
+}
+
+.order-button {
+  margin-top: 20px;
 }

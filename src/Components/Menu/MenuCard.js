@@ -1,175 +1,185 @@
-import React from "react";
-import { Box } from "@mui/system";
-import IconButton from "@mui/material/IconButton";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import InputAdornment from "@mui/material/InputAdornment";
-import FormControl from "@mui/material/FormControl";
-import "./MenuCard.css";
-import Stack from "@mui/material/Stack";
-import Snackbar from "@mui/material/Snackbar";
-import MuiAlert from "@mui/material/Alert";
-import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
-import FmdGoodIcon from "@mui/icons-material/FmdGood";
-import RoomServiceIcon from "@mui/icons-material/RoomService";
-import StoreIcon from "@mui/icons-material/Store";
-import PlacedOrder from "../PlacedOrder/PlacedOrder";
-import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import React, { useState } from 'react';
+import {
+  Box,
+  Stack,
+  Snackbar,
+  Alert,
+  Container,
+  Typography,
+  Button,
+  Card,
+  Grid,
+  CardContent,
+  List,
+  ListItem,
+  ListItemText,
+} from '@mui/material';
+import RemoveIcon from '@mui/icons-material/Remove';
+import AddIcon from '@mui/icons-material/Add';
 
+import { Link } from 'react-router-dom';
+import {
+  CurrencyRupee,
+  RoomService,
+  AddCircle,
+  RemoveCircle,
+} from '@mui/icons-material';
+import {
+  OutlinedInput,
+  InputAdornment,
+  IconButton,
+  FormControl,
+} from '@mui/material';
+import './MenuCard.css';
+import homeback from '../Menu/back3.png';
 
-
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
-
-export default function MenuCard(props) {
-  const { cartItems, onAdd, onRemove } = props;
+const MenuCard = ({ cartItems, onAdd, onRemove }) => {
+  const [open, setOpen] = useState(false);
 
   const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
   const itemgst = itemsPrice * 0.12;
   const totalPrice = itemsPrice + itemgst;
 
-  const [open, setOpen] = React.useState(false);
-
-  const handleClick = () => {
-    setOpen(true);
-  };
+  const handleClick = () => setOpen(true);
   const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
+    if (reason === 'clickaway') return;
     setOpen(false);
   };
 
+  console.log(cartItems, 'cartItems');
 
   return (
-    <div className="full">
-      <Stack spacing={2} sx={{ width: "100%" }}>
-        <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
-          <Alert
-            onClose={handleClose}
-            severity="success"
-            sx={{ width: "100%" }}
-          >
-            Coupon code applied success!
-          </Alert>
-        </Snackbar>
-      </Stack>
-      <div className="Main">
-        <div className="MenuCard">
-          {cartItems.length === 0 ? (
-            <Box sx={{ width: 880, height: 400 }} className="emptycart">
-              <h1> No Food is Order</h1>
-            </Box>
-          ) : (
-            <>
-              {cartItems.map((item) => {
-                return (
-                  <Card
-                    className="ordercard"
-                    sx={{
-                      display: "flex",
+    <Stack
+      style={{
+        height: '83vh',
+        backgroundImage: `url(${homeback})`,
+        // backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'bottom', // Add this line
+      }}
+    >
+      <Container style={{ marginTop: '50px' }}>
+        <Stack spacing={2}>
+          <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
+            <Alert onClose={handleClose} severity='success'>
+              Coupon code applied successfully!
+            </Alert>
+          </Snackbar>
+        </Stack>
+        <div>
+          <Grid>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <Card style={{ border: '0.5px solid black' }}>
+                  <CardContent>
+                    <Typography variant='h5'>
+                      <b>Order Items</b>
+                    </Typography>
+                    {cartItems.length !== 0 ? (
+                      <List>
+                        {cartItems.map((item) => (
+                          <ListItem key={item.id}>
+                            <ListItemText
+                              primary={item.name}
+                              secondary={`Quantity: ${item.qty}`}
+                            />
+                            <div>
+                              <IconButton
+                                aria-label='subtract'
+                                size='small'
+                                onClick={() => onRemove(item)}
+                              >
+                                <RemoveIcon />
+                              </IconButton>
+                              {item.qty}
+                              <IconButton
+                                aria-label='add'
+                                size='small'
+                                onClick={() => onAdd(item)}
+                              >
+                                <AddIcon />
+                              </IconButton>
+                            </div>
+                            <IconButton
+                              aria-label='delete'
+                              size='small'
+                              onClick={() => onRemove(item)}
+                            >
+                              Delete
+                            </IconButton>
+                          </ListItem>
+                        ))}
+                      </List>
+                    ) : (
+                      <Box
+                        display='flex'
+                        justifyContent='center'
+                        padding={10.3}
+                        textAlign='center'
+                        maxWidth={500}
+                      >
+                        <Typography textAlign='center' variant='h6'>
+                          Your cart is empty.
+                        </Typography>
+                      </Box>
+                    )}
+                  </CardContent>
+                </Card>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <Card style={{ border: '0.5px solid black' }}>
+                  <CardContent>
+                    <Typography variant='h5'>
+                      <b>Order Summary</b>
+                    </Typography>
+                    <List>
+                      <ListItem>
+                        <ListItemText
+                          primary={`Subtotal: $${cartItems
+                            .reduce(
+                              (sum, item) => sum + item.qty * item.price,
+                              0
+                            )
+                            .toFixed(2)}`}
+                        />
+                      </ListItem>
 
-                      marginLeft: 3,
-                      marginBottom: 5,
-                      border: "2px solid grey",
-                      borderRadius: 3,
-                    }}
-                  >
-                    <CardMedia
-                      className="cardimg"
-                      component="img"
-                      sx={{ width: 250, height: 150 }}
-                      image={item.img}
-                      alt="orderimg"
-                    />
-
-                    <div className="ordercontant">
-                      <div className="hotloc" varient="h2">
-                        <StoreIcon fontSize="large" /> {item.hotel}
-                        <FmdGoodIcon fontSize="large" /> {item.location}
-                      </div>
-                      <div className="Dish">
-                        <RoomServiceIcon fontSize="large" />
-                        {item.name}
-                      </div>
-                      <div className="qtypri">
-                        <Button onClick={() => onAdd(item)} className="add">
-                          <AddCircleIcon color="success" fontSize="large" />
-                        </Button>
-                        <div className="Qty">{item.qty}</div>
-                        <Button
-                          onClick={() => onRemove(item)}
-                          className="remove"
-                        >
-                          <RemoveCircleIcon color="error" fontSize="large" />
-                        </Button>
-                        <div className="DishPrice" varient="h3">
-                          <CurrencyRupeeIcon fontSize="large" />
-                          {item.price}
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                );
-              })}
-            </>
-          )}
+                      <ListItem>
+                        <ListItemText
+                          primary={`Tax: $
+${(
+  cartItems.reduce((sum, item) => sum + item.qty * item.price, 0) * 0.1
+).toFixed(2)}`}
+                        />
+                      </ListItem>
+                      <ListItem>
+                        <ListItemText
+                          primary={`Total: $
+${(
+  cartItems.reduce((sum, item) => sum + item.qty * item.price, 0) * 1.1
+).toFixed(2)}`}
+                        />
+                      </ListItem>
+                    </List>
+                    <Button
+                      fullWidth
+                      variant='contained'
+                      color='primary'
+                      onClick={() => {
+                        // history.push('/checkout');
+                      }}
+                    >
+                      Checkout
+                    </Button>
+                  </CardContent>
+                </Card>
+              </Grid>
+            </Grid>
+          </Grid>
         </div>
-
-        <div className="SideBar">
-          <Box
-            sx={{
-              width: 380,
-              height: 400,
-              flexDirection: "flex-end",
-              border: "4px solid black",
-              borderRadius: 15,
-            }}
-          >
-            <h4>Order Summary</h4>
-            <div>SubTotal:{itemsPrice}</div>
-            <div>GSt:{itemgst}</div>
-            <br />
-            <FormControl className="Coupon" variant="contained">
-              <OutlinedInput
-                size="small"
-                width="25ch"
-                placeholder="Apply Coupon"
-                endAdornment={
-                  <InputAdornment>
-                    <IconButton>
-                      <Button variant="outlined" onClick={handleClick}>
-                        Apply
-                      </Button>
-                    </IconButton>
-                  </InputAdornment>
-                }
-              />
-            </FormControl>
-            <br />
-            Total Price:{totalPrice}
-            <br />
-            <div className="Order-Button">
-              <Link to="/PlacedOrder">
-                <Button
-                  variant="contained"
-                  color="success"
-                  onClick={PlacedOrder}
-                >
-                  PLACED ORDER
-                </Button>
-              </Link>
-             
-            </div>
-          </Box>
-        </div>
-      </div>
-    </div>
+      </Container>
+    </Stack>
   );
-}
+};
+
+export default MenuCard;

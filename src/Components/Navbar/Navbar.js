@@ -1,69 +1,151 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Navbar.css";
-import HomeIcon from "@mui/icons-material/Home";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
-import { Badge } from "@mui/material";
-import StorefrontIcon from "@mui/icons-material/Storefront";
+import React, { useState } from 'react';
+import {
+  AppBar,
+  Box,
+  Divider,
+  Drawer,
+  IconButton,
+  Toolbar,
+  Typography,
+  Badge,
+} from '@mui/material';
+// import Logo from '../../images/logo.png';
+
+import MenuIcon from '@mui/icons-material/Menu';
+import { NavLink } from 'react-router-dom';
+import './Navbar.css';
+
 const Navbar = (props) => {
-  const logout = (event) => {
-    props.onLogout();
-  };
-
   const { countCartItems } = props;
-
+  const [mobileOpen, setMobileOpen] = useState(false);
+  // hndle menu click
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+  //menu drawer
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+      <Typography
+        color={'goldenrod'}
+        variant='h5'
+        component='div'
+        sx={{
+          flexGrow: 1,
+          my: 2,
+          fontFamily: 'monospace',
+          fontWeight: 700,
+          letterSpacing: '.3rem',
+        }}
+      >
+        Food Fly
+        {/* <img src={Logo} alt='logo' height={'70'} width='200' /> */}
+      </Typography>
+      <Divider />
+      <ul className='mobile-navigation'>
+        <li>
+          <NavLink activeClassName='active' to={'/'}>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to={'/menu'}>Menu</NavLink>
+        </li>
+        <li>
+          <NavLink to={'/about'}>About</NavLink>
+        </li>
+        <li>
+          <NavLink to={'/contact'}>Contact</NavLink>
+        </li>
+      </ul>
+    </Box>
+  );
   return (
     <>
-      <div className="head">
-        <h1>Welcome To Food Fly</h1>
-      </div>
-
-      <div className="header  ">
-        <Link to="/">
-          <img
-            src="../img/headlogo.png"
-            alt="logo"
-            width="50px"
-            height="50px"
-          />
-        </Link>
-
-        <Link to="/Home">
-          <HomeIcon fontSize="large" />
-        </Link>
-
-        <Link to="/Products">
-          <RestaurantMenuIcon fontSize="large" />
-        </Link>
-
-        <Link to="/MenuCard">
-          <Badge
-            anchorOrigin={{
-              vertical: "top",
-              horizontal: "right",
+      <Box>
+        <AppBar component={'nav'} sx={{ bgcolor: 'black' }}>
+          <Toolbar>
+            <IconButton
+              color='inherit'
+              aria-label='open drawer'
+              edge='start'
+              sx={{
+                mr: 2,
+                display: { sm: 'none' },
+              }}
+              onClick={handleDrawerToggle}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              color={'goldenrod'}
+              variant='h5'
+              component='div'
+              sx={{
+                flexGrow: 1,
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+              }}
+            >
+              Food Fly
+              {/* <img src={Logo} alt='logo' height={'70'} width='250' /> */}
+            </Typography>
+            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+              <ul className='navigation-menu'>
+                <li>
+                  <NavLink activeClassName='active' to='/Home'>
+                    Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink activeClassName='active' to='/Products'>
+                    Products
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={'/MenuCard'}>
+                    <Badge
+                      anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      badgeContent={countCartItems}
+                      color='error'
+                    >
+                      Order
+                    </Badge>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={'/About'}>About</NavLink>
+                </li>
+                <li>
+                  <NavLink to={'/Contact'}>Contact</NavLink>
+                </li>
+              </ul>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <Box component='nav'>
+          <Drawer
+            variant='temporary'
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            sx={{
+              display: { xs: 'block', sm: 'none' },
+              '& .MuiDrawer-paper': {
+                boxSizing: 'border-box',
+                width: '240px',
+              },
             }}
-            badgeContent={countCartItems}
-            color="error"
           >
-            <StorefrontIcon fontSize="large" />
-          </Badge>
-        </Link>
-
-        <Link to="/About">
-          <AccountCircleIcon fontSize="large" />
-        </Link>
-
-        <Link
-          to="/"
-          sx={{ m: 1, width: "8ch" }}
-          variant="contained"
-          onClick={logout}
-        >
-          <ExitToAppIcon fontSize="large" />
-        </Link>
-      </div>
+            {drawer}
+          </Drawer>
+        </Box>
+        <Box>
+          <Toolbar />
+        </Box>
+      </Box>
     </>
   );
 };
